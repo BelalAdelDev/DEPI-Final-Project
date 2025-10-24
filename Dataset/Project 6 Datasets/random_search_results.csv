@@ -1,3 +1,0 @@
-trial,filters,conv_layers,dense_units,dropout,batch_norm,optimizer,lr,accuracy,precision,recall,f1_score,weighted_score
-1,32,2,512,0.38,True,adam,0.0001,0.851605,0.851261,0.851605,0.849474,0.524432
-2,32,2,128,0.58,False,rmsprop,0.0001,0.804444,0.80016,0.804444,0.80083,0.414677
