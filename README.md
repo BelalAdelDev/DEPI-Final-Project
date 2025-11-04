@@ -38,6 +38,30 @@ Data is split roughly into 70% training, 15% validation, and 15% test sets. Imag
 
 ---
 
+## TensorFlow GPU Setup
+For GPU acceleration, TensorFlow was configured to utilize the system’s NVIDIA GPU.  
+The setup followed [this tutorial](https://github.com/entbappy/Setup-NVIDIA-GPU-for-Deep-Learning.git).
+
+### My Current GPU Environment
+| Component | Details |
+|------------|----------|
+| **TensorFlow** | 2.10.1 |
+| **Keras** | 2.10.0 |
+| **NumPy** | 1.26.4 |
+| **Scikit-learn** | 1.7.2 |
+| **Driver Version** | 581.57 |
+| **CUDA Toolkit** | 11.2.0 (cuda_11.2.0_460.89_win10) |
+| **cuDNN** | 8.9.7.29 (cudnn-windows-x86_64-8.9.7.29) |
+
+The environment was validated by running TensorFlow GPU checks to ensure CUDA and cuDNN were correctly recognized:
+```python
+import tensorflow as tf
+print(tf.__version__)
+print(tf.config.list_physical_devices('GPU'))
+```
+
+---
+
 ## Features
 
 - **Data Augmentation:** Rescaling, rotation, and fill modes applied during training to improve model robustness.
@@ -103,10 +127,13 @@ pip install tensorflow numpy opencv-python matplotlib seaborn scikit-learn
 │   ├── EuroSATRGB/             # Original RGB images dataset
 │   ├── EuroSATRGBsplit/        # Split dataset for train/val/test
 ├── ModelFineTuning/            # Scripts and notebooks for fine-tuning
-│    └── RandomSearch/          # Hyperparameter tuning using Random search
+│   ├── Random_Search/          # Hyperparameter tuning using Random search
+│   │    ├── Checkpoints/       # Saved model weights and checkpoints
+│   │    └── RandomSearchModel.ipynb    # run file for Random search
+│   └── Bayesian_Optimization/  # Hyperparameter tuning using Bayesian optimization
 │        ├── Checkpoints/       # Saved model weights and checkpoints
-│        └── RandomSearchModel.ipynb       # run file for Random search
-├── model.h5                   # Trained model file
-├── Model.ipynb                # Main notebook for experimentation
-└── README.md                  # Project documentation
+│        └── RandomSearchModel.ipynb    # run file for Bayesian optimization
+├── model.h5                    # Trained model file
+├── Model.ipynb                 # Main notebook for experimentation
+└── README.md                   # Project documentation
 ```
