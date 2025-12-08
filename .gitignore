@@ -3,3 +3,8 @@ Model_app/*.h5
 *.keras
 *.pkl
 .gitignore
+__pycache__
+.mypy_cache
+
+!API/Models/model_vgg16.keras
+!API/Models/sequential_model.keras
